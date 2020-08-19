@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+    "FileReader": true,
+    "URLSearchParams": true,
+    "Promise": true,
+    "setTimeout": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

@@ -1,0 +1,74 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar {
+  .nav-link {
+    white-space: nowrap;
+  }
+  .navbar-collapse {
+    .navbar-nav {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+}
+
+.small-cart {
+  position: fixed;
+  z-index: 2;
+  right: 15px;
+  top: 80px;
+  background-color: var(--white);
+  border-radius: .25rem;
+
+  .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: .875rem;
+    color: var(--white);
+    background-color: #ff6900;
+    pointer-events: none;
+  }
+}
+
+.card-body{
+  &__pricerow {
+    min-height: 40px;
+  }
+  &__price {
+    font-size: 1.375rem;
+  }
+}
+
+.count-group {
+  width: auto;
+
+  .btn-number {
+    border: solid #ced4da;
+    background: none;
+    width: 32px;
+    text-align: center;
+    outline: none;
+  }
+  .btn-number:first-child {
+    border-radius: .25rem 0 0 .25rem;
+    border-width: 1px 0 1px 1px;
+  }
+  .btn-number:last-child {
+    border-radius: 0 .25rem .25rem 0;
+    border-width: 1px 1px 1px 0;
+  }
+  .input-number {
+    max-width: 48px;
+    padding: 0.3125rem 0.5rem;
+    width: auto;
+    text-align: center;
+  }
+}
