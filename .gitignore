@@ -5,6 +5,7 @@ public/images
 /storage/*.key
 /vendor
 /.idea
+.idea/
 /.vagrant
 /nbproject
 Homestead.json
