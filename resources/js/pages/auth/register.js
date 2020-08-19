@@ -5,7 +5,7 @@ import { register } from '../../api/auth';
 import { getIntendedUrl } from '../../utils/auth';
 import Layout from '../../components/Layout';
 import useInputValue from '../../components/input-value';
-import SmallCart from '../cart/SmallCart';
+import SmallCart from '../cart/small-cart';
 
 export default function Register() {
   const history = useHistory();

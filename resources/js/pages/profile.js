@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import { getUserOrders } from '../api/shop';
-import OrderProducts from './auth/OrderProducts';
-import FullPageSpinner from '../components/full-page-spinner';
+import OrderProducts from './auth/order-products';
+import FullPageSpinner from '../components/spinner';
 import { formatNumber } from '../utils/helpers';
 
 export default function Profile() {
@@ -30,40 +30,51 @@ export default function Profile() {
           {isLoading
             ? <FullPageSpinner />
             : (!orders.length ? <h5>Sorry, you have no orders yet.</h5>
-              :
-              orders.map((item, index) => (
+              : orders.map((item, index) => (
                 <div className="card border-0 shadow-sm mb-3" key={index}>
                   <div className="card-body">
                     <div className="d-flex align-items-center justify-content-between">
                       <h6>
                         Order:
-                      <span> {item.created_at}</span>
+                        <span>
+                          {' '}
+                          {item.created_at}
+                        </span>
                       </h6>
                       <h6>
                         Total Items:
-                      <strong> {item.cart.itemCount}</strong>
+                        <strong>
+                          {' '}
+                          {item.cart.itemCount}
+                        </strong>
                       </h6>
                     </div>
                     <hr className="my-3" />
                     <OrderProducts products={item.cart.cartItems} />
                     <hr className="my-3" />
                     <div className="d-flex align-items-center justify-content-between">
-                      {item.cart.deliveryCost &&
+                      {item.cart.deliveryCost
+                        && (
                         <h6>
                           Delivery:
-                        <strong> {formatNumber(item.cart.deliveryCost)}</strong>
+                          <strong>
+                            {' '}
+                            {formatNumber(item.cart.deliveryCost)}
+                          </strong>
                         </h6>
-                      }
+                        )}
                       <h6>
                         Total Cost:
-                      <strong> {formatNumber(item.cart.total)}</strong>
+                        <strong>
+                          {' '}
+                          {formatNumber(item.cart.total)}
+                        </strong>
                       </h6>
                     </div>
                   </div>
                 </div>
               ))
-            )
-          }
+            )}
         </div>
       </div>
     </Layout>

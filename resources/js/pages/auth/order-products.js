@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import OrderItem from './OrderItem';
+import OrderItem from './order-item';
 
 const OrderProducts = ({ products }) => (
   <div className="p-0">
@@ -12,7 +12,7 @@ const OrderProducts = ({ products }) => (
 );
 
 OrderProducts.propTypes = {
-    products: PropTypes.array,
+  products: PropTypes.array,
 };
 
 export default OrderProducts;

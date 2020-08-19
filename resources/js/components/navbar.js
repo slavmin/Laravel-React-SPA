@@ -2,14 +2,11 @@
 import React, { useState } from 'react';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import { Logo } from './icons/logo';
-// auth-nav
 import { useAuth } from '../context/AuthContext';
 import { setIntendedUrl } from '../utils/auth';
 import { logout } from '../api/auth';
-// auth-nav
 
 export default function GuestNav() {
-  // auth-nav
   const { setCurrentUser, setToken, currentUser } = useAuth();
   const history = useHistory();
   // eslint-disable-next-line no-unused-vars
@@ -32,7 +29,6 @@ export default function GuestNav() {
     history.push('/');
     setIntendedUrl(null);
   };
-  // auth-nav
 
   return (
     <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">

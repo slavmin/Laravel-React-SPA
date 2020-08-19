@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import SmallCart from './cart/SmallCart';
+import SmallCart from './cart/small-cart';
 
 export default function NotFound() {
   return (

@@ -45,10 +45,10 @@ const CartItem = ({ product }) => {
             product.quantity > 1
             && (
             <button
-            onClick={() => decrease(product)}
-            className="btn btn-danger btn-sm mb-1"
+              onClick={() => decrease(product)}
+              className="btn btn-danger btn-sm mb-1"
             >
-            <MinusCircleIcon width="20px" />
+              <MinusCircleIcon width="20px" />
             </button>
             )
         }
@@ -57,10 +57,10 @@ const CartItem = ({ product }) => {
             product.quantity === 1
             && (
             <button
-            onClick={() => removeProduct(product)}
-            className="btn btn-danger btn-sm mb-1"
+              onClick={() => removeProduct(product)}
+              className="btn btn-danger btn-sm mb-1"
             >
-            <TrashIcon width="20px" />
+              <TrashIcon width="20px" />
             </button>
             )
         }

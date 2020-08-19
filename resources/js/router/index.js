@@ -9,7 +9,7 @@ import Profile from '../pages/profile';
 import AuthRoute from './auth-route';
 import GuestRoute from './guest-route';
 import { useAuth } from '../context/AuthContext';
-import FullPageSpinner from '../components/full-page-spinner';
+import FullPageSpinner from '../components/spinner';
 
 function App() {
   const { initializing } = useAuth();

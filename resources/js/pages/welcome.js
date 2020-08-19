@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../api/shop';
 import Layout from '../components/Layout';
-import ProductItem from '../components/ProductItem';
-import FullPageSpinner from '../components/full-page-spinner';
-import SmallCart from './cart/SmallCart';
+import ProductItem from '../components/product-item';
+import FullPageSpinner from '../components/spinner';
+import SmallCart from './cart/small-cart';
 
 export default function Welcome() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,9 +12,9 @@ export default function Welcome() {
 
   useEffect(() => {
     getProducts()
-    .then(({ data }) => setProducts(data))
-    .then(() => setIsLoading(false))
-    .catch((err) => setErrors(err));
+      .then(({ data }) => setProducts(data))
+      .then(() => setIsLoading(false))
+      .catch((err) => setErrors(err));
   }, []);
 
   return (
