@@ -14,7 +14,7 @@ const Counter = (props) => {
   }, [value]);
 
   const handleChange = (e) => {
-    !+e.target.value >= 1 || +e.target.value > 100 ? setValue(1) : setValue(e.target.value);
+    !+e.target.value >= 1 || +e.target.value > 100 ? setValue(1) : setValue(parseInt(e.target.value, 10));
   };
   const decrement = () => {
     +value > 1 ? setValue(+value - 1) : setValue(1);
