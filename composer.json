@@ -68,6 +68,7 @@
             "@php artisan view:clear",
             "@php artisan config:clear",
             "composer dumpautoload -o",
+            "chown -R www-data:www-data",
             "chmod -R 777 public/"
         ]
     }
