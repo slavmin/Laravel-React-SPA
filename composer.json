@@ -62,7 +62,12 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "php artisan clear-compiled",
+            "@php artisan clear-compiled",
+            "@php artisan cache:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "@php artisan config:clear",
+            "composer dumpautoload -o",
             "chmod -R 777 public/"
         ]
     }
