@@ -1,43 +1,44 @@
 import 'whatwg-fetch';
-import { getToken } from '../utils/auth';
+import {getToken} from '../utils/auth';
 
-function Client(endpoint, { method, body, ...customConfig } = {}) {
-  const token = getToken();
+function Client(endpoint, {method, body, ...customConfig} = {}) {
+    const token = getToken();
 
-  const headers = {
-    'content-type': 'application/json',
-    'X-Requested-With': 'XMLHttpRequest',
-  };
+    const headers = {
+        'content-type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    };
 
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
+    if (token) {
+        headers.Authorization = `Bearer ${token}`;
+    }
 
-  method = method || (body ? 'POST' : 'GET');
+    method = method || (body ? 'POST' : 'GET');
 
-  const config = {
-    method,
-    ...customConfig,
-    headers: {
-      ...headers,
-      ...customConfig.headers,
-    },
-  };
+    const config = {
+        method,
+        ...customConfig,
+        headers: {
+            ...headers,
+            ...customConfig.headers,
+        },
+    };
 
-  if (body) {
-    config.body = JSON.stringify(body);
-  }
+    if (body) {
+        config.body = JSON.stringify(body);
+    }
 
-  return window
-    .fetch(endpoint, config)
-    .then((r) => {
-      if (r.status >= 200 && r.status < 300) {
-        return r.json();
-      }
+    return window
+        .fetch(endpoint, config)
+        .then((r) => {
+            if (r.status >= 200 && r.status < 300) {
+                return r.json();
+            }
 
-      return Promise.reject(r);
-    })
-    .catch((error) => Promise.reject(error));
+            return Promise.reject(r);
+        })
+        .catch((error) => Promise.reject(error));
 }
 
 export default Client;
